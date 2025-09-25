@@ -279,13 +279,11 @@ This repository is a **learning guide and architecture blueprint** - not a ready
 ## 🤝 Community
 
 ### **Contribute**
-- 🔧 **Code**: Submit PRs for bug fixes or new features
 - 📖 **Documentation**: Improve guides and tutorials
-- 🧪 **Testing**: Add test cases or evaluation datasets
 - 💡 **Ideas**: Suggest new projects or improvements
 
 ### **Showcase Your Work**
-Built something cool with these projects? We'd love to see it! Tag us with `#AIPocketProjects` or submit a showcase PR.
+Built something cool with these projects? We'd love to see it! Submit a showcase PR.
 
 ---
 
