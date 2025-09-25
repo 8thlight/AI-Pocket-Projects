@@ -207,7 +207,7 @@ AI-Pocket-Projects/
 3. **Learn by teaching**: Ask AI to help you explain concepts back—great for retention
 4. **Challenge assumptions**: "Is this the best way to do X?" often leads to better solutions
 
-**Remember**: AI is your pair programming partner, not a replacement for understanding. Use it to accelerate learning, not skip it!
+**Remember**: AI is your pair programming partner, not a replacement for understanding. Use it to accelerate learning, explore at the architectural level implementing a vision, not just the puzzle pieces. 
 
 ---
 
