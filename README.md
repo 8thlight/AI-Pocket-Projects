@@ -153,7 +153,7 @@ AI-Pocket-Projects/
     ├── 2. Voice/
     │   └── README.md           # Phase 2: Voice Interface guide
     └── 3. MCP/
-        └── README.md           # Phase 3: Web Intelligence guide
+        └── README.md           # Phase 3: Web Search guide
 ```
 
 ---
