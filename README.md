@@ -1,42 +1,29 @@
-📦 Pocket Agents
+📦 AI Pocket Projects
 
-Pocket Agents is a collection of small, composable AI engineering projects. Each project is scoped to teach one hard thing well, while still being useful as a standalone utility.
+**AI Pocket Projects** is a collection of small, composable AI engineering projects. 
+Each project is designed to be practical, portable, and teachable — giving you hands-on experience with key AI system patterns in under a week.
 
 The three core projects are:
 
 T-RAG → a minimal Retrieval-Augmented Generation (RAG) system.
-
 Voice Layer → Pipecat-driven voice interface for natural conversation.
-
 Web MCP → a Model Context Protocol (MCP) server for search + scrape-to-Markdown.
-
 Together, they demonstrate how to scaffold AI-powered systems from knowledge retrieval → multi-modal interaction → external tool augmentation.
 
 🚀 Why Pocket Agents?
 
 Concrete → Each project has a crisp end-to-end workflow.
-
 Composable → Each agent can stand alone or plug into the others.
-
 Practical → Focus on usable utilities (retrieval, ops, research).
-
 Teachable → Each is designed to illustrate core AI engineering principles.
-
 1. T-RAG: Tiny Retrieval-Augmented Generation
 Goal
-
 A minimal RAG system that can answer questions over a small corpus (Markdown, PDFs, HTML) with citations, latency targets, and evaluation hooks.
-
 Scope
-
 Ingest: Chunk + embed documents into a vector store.
-
 Retrieve: Top-k retrieval, with optional reranker.
-
 Generate: Answer via a chat model (LiteLLM gateway).
-
 Convo memory: Manage last N turns as a separate retrieval domain.
-
 Eval: Golden Q/A set with promptfoo tests.
 
 Data
