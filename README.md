@@ -47,7 +47,7 @@ Every AI product needs to work with information. RAG teaches you to build system
 **Real-world applications:**
 - Customer support bots that know your product docs
 - BizOps Agents - Research, Sales Enablement, Deep Research
-  + Do you scale 1 agent per process, or 1 agnet that routes to a collection of related processes?
+  + Do you scale 1 agent per process, or 1 agent that routes to a collection of related processes?
 
 ---
 
