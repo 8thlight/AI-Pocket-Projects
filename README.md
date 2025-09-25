@@ -1,8 +1,6 @@
 # 🚀 AI Pocket Projects: Your Journey to Building Intelligent Systems
 
 > *From zero to AI product in weeks, not months*
-> 
-> **By T-rav**
 
 **AI Pocket Projects** is your guided journey through building real AI systems that people actually use. Instead of toy examples, you'll build production-ready components that solve genuine problems: intelligent search, natural voice interfaces, and knowledge systems that get smarter over time.
 
@@ -278,12 +276,7 @@ This repository is a **learning guide and architecture blueprint** - not a ready
 
 ---
 
-## 🤝 Community & Support
-
-### **Get Help**
-- 💬 [Discussions](https://github.com/your-username/AI-Pocket-Projects/discussions) - Ask questions, share ideas
-- 🐛 [Issues](https://github.com/your-username/AI-Pocket-Projects/issues) - Report bugs or request features
-- 📧 [Email](mailto:your-email@example.com) - Direct support for complex issues
+## 🤝 Community
 
 ### **Contribute**
 - 🔧 **Code**: Submit PRs for bug fixes or new features
