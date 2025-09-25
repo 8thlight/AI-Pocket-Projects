@@ -2,11 +2,11 @@
 
 > *From zero to AI product in weeks, not months*
 
-**AI Pocket Projects** is your guided journey through building real AI systems that people actually use. Instead of toy examples, you'll build production-ready components that solve genuine problems: intelligent search, natural voice interfaces, and knowledge systems that get smarter over time.
+**AI Pocket Projects** is your guided journey through building real AI systems that people actually use. Instead of toy examples, you'll build production-ready components that solve genuine problems: intelligent search, natural voice interfaces, and knowledge systems.
 
 ## 🎯 The Journey Ahead
 
-Building AI products can feel overwhelming. Where do you start? How do you move beyond tutorials to systems that handle real users, real data, and real problems?
+Building AI products can feel overwhelming. Where do you start? 
 
 This repository takes you on a structured journey through three interconnected projects that, together, form the foundation of modern AI applications:
 
@@ -15,23 +15,21 @@ This repository takes you on a structured journey through three interconnected p
 ```
 
 Each project builds essential skills while creating something genuinely useful. By the end, you'll have built a complete AI assistant that can:
-- **Answer questions from your documents with mandatory citations**
+- **Answer questions from your documents with citations**
 - Have natural voice conversations
 - **Search the web and incorporate fresh information with source attribution**
-- Learn from every interaction
 ---
 
 ## 🗺️ Your Learning Path
 
 ### **Phase 1: The Knowledge Foundation**
-*Build a system that understands and remembers*
+*Build a system that understands*
 
 **Project: RAG (Retrieval-Augmented Generation)**
 
 Every AI product needs to work with information. RAG teaches you to build systems that can:
-- Ingest and understand documents (PDFs, web pages, notes)
+- Ingest and understand documents (PDFs, MD)
 - **Answer questions with mandatory source citations** - never respond without attribution
-- Remember conversations and learn from them
 - Evaluate and improve their own performance
 
 **What you'll learn:**
@@ -166,7 +164,7 @@ AI-Pocket-Projects/
 - **SQL**: SQLite for simple, reliable data storage
 - **Pipecat**: Voice pipeline framework for real-time conversations
 
-**AI & ML Services:**
+**AI Services:**
 - **OpenAI GPT-4o**: Language understanding and generation
 - **OpenAI Realtime API**: Low-latency voice conversations
 - **Deepgram**: Real-time speech recognition
@@ -183,7 +181,7 @@ AI-Pocket-Projects/
 
 ## 🤖 AI-Assisted Development: Your Learning Accelerator
 
-**Don't code alone—code with AI!** This project is designed to be explored with AI development tools like GitHub Copilot, Claude, ChatGPT, or Cursor. Here's how to maximize your learning:
+**Don't code alone—code with AI!** This project is designed to be explored with AI development tools like GitHub Copilot, Claude Code, or Cursor. Here's how to maximize your learning:
 
 ### **🔍 Exploration Strategies**
 - **Ask "What if?"** questions: "What if I used a different embedding model?" "How would this work with streaming data?"
@@ -200,11 +198,8 @@ AI-Pocket-Projects/
 ```
 
 ### **🛠️ AI Tools That Pair Well**
-- **GitHub Copilot**: Autocomplete and code suggestions as you build
-- **Cursor**: AI-powered IDE with codebase understanding
-- **Claude/ChatGPT**: Architecture discussions and code reviews
-- **Codeium**: Free alternative with good Python/JS support
-- **Langfuse**: Prompt playground for experimentation and LLM monitoring
+- **Cursor**: Easily paste screenshots for help in the break fix loop.
+- **Claude Code**: Drive code, tests and CI from there.
 
 ### **🎯 Pro Tips for AI-Assisted Learning**
 1. **Start with questions**: Before writing code, ask your AI assistant to explain the approach
