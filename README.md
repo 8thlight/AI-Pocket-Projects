@@ -142,39 +142,57 @@ Individual agents are powerful, but coordinated agents are transformative. You'l
 
 ---
 
-## 🏗️ Architecture: How It All Connects
+## 🏗️ How the Phases Build Together
+
+Your learning journey follows a clear progression, with each phase building on the previous:
 
 ```mermaid
-graph TB
-    User[👤 User] --> Voice[🎙️ Voice Interface]
-    User --> Web[🌐 Web UI]
+graph LR
+    subgraph "Phase 1: Knowledge Foundation"
+        RAG[🧠 RAG System]
+        RAG --> DB[(📊 Vector DB)]
+        RAG --> Cites[📄 Citations]
+    end
     
-    Voice --> Router[🤖 Agent Router]
-    Web --> Router
+    subgraph "Phase 2: Voice Interface"
+        Voice[🎙️ Voice Pipeline]
+        Voice --> RAG
+    end
     
-    Router --> SimpleRAG[🧠 Simple RAG]
-    Router --> MultiAgent[👥 Multi-Agent Research]
+    subgraph "Phase 3: Web Intelligence" 
+        Web[🌐 Web Search]
+        Web --> RAG
+    end
     
-    SimpleRAG --> VectorDB[(📊 Vector Database)]
-    SimpleRAG --> LLM[🤖 Language Model]
+    subgraph "Phase 4: Agent Orchestration"
+        Router{🤖 Smart Router}
+        Router --> Simple[⚡ Quick Answers]
+        Router --> Research[📋 Deep Research]
+        Simple --> RAG
+        Research --> Multi[👥 Multi-Agent Chain]
+        Multi --> RAG
+        Multi --> Web
+    end
     
-    MultiAgent --> Planner[📋 Research Planner]
-    MultiAgent --> Gatherer[🔍 Research Gatherer]  
-    MultiAgent --> Builder[📄 Report Builder]
-    
-    Gatherer --> VectorDB
-    Gatherer --> MCP[🌐 Web MCP Server]
-    Gatherer --> Perplexity[🧠 Perplexity API]
-    
-    MCP --> Search[🔎 Search APIs]
-    MCP --> Scraper[📄 Web Scraper]
-    
-    SimpleRAG --> Memory[(💾 Conversation Memory)]
-    MultiAgent --> Memory
-    MultiAgent --> Eval[📈 Evaluation System]
+    User[👤 You] --> Voice
+    User --> Router
 ```
 
-Each component is designed to work independently or as part of the larger system. Start with one, master it, then connect the pieces.
+**🎯 Learning Path:**
+1. **Phase 1**: Build reliable RAG with perfect citations
+2. **Phase 2**: Add voice conversation on top of your RAG  
+3. **Phase 3**: Connect web search to enhance your RAG
+4. **Phase 4**: Learn multi-agent systems as a separate exploration project
+
+**🔗 How They Connect:**
+- **Phases 1-3**: You build ONE complete, working system (RAG → +Voice → +Web)
+- **Phase 4**: **Separate agent exploration project** - learn multi-agent concepts and patterns
+
+**Two Approaches for Phase 4:**
+1. **Learning Focus**: Build a standalone agent system to explore LangGraph and multi-agent patterns
+2. **Integration Option**: Optionally connect agent concepts to your Phase 1-3 system if you want
+
+**Key Insight**: Your Phase 1-3 system is complete and valuable as-is. Phase 4 is about learning a different AI architecture pattern, not retrofitting your existing work.
 
 ---
 
@@ -315,15 +333,16 @@ This repository is a **learning guide and architecture blueprint** - not a ready
 - [ ] Handle rate limits, errors, and edge cases gracefully
 - [ ] Polish end-to-end system: Voice → RAG → Web Search → Cited Responses
 
-### **Week 7-8: Multi-Agent Orchestration**
+### **Week 7-8: Multi-Agent Systems Exploration**
 **📚 Complete Guide:** [`project/4. Agents/README.md`](project/4.%20Agents/README.md)
 
+- [ ] Learn LangGraph for agent workflow orchestration
 - [ ] Build intelligent routing system (simple vs research workflows)
 - [ ] Implement Research Planner → Gatherer → Report Builder agent chain
-- [ ] **Integrate all phases: RAG + Voice + Web Search + Agent orchestration**
-- [ ] Add Perplexity for AI-powered deep research synthesis
-- [ ] **Create comprehensive research reports with multi-source citations**
-- [ ] Optimize agent workflows for production deployment
+- [ ] **Explore agent communication and state management patterns**
+- [ ] Add Perplexity for AI-powered research synthesis (in your agent project)
+- [ ] **Practice multi-agent coordination and error handling**
+- [ ] **Optional**: Connect agent learnings to your Phase 1-3 system if desired
 
 ---
 

@@ -1,20 +1,20 @@
-# Phase 4: Multi-Agent Research System 🤖
+# Phase 4: Multi-Agent Systems 🤖
 
-*Orchestrating specialized AI agents for intelligent research workflows*
+*Learn agent orchestration patterns and LangGraph workflows*
 
 ## What You're Building
 
-A **multi-agent research system** that intelligently routes user requests between:
-- **Simple RAG**: Fast answers with automatic knowledge retrieval 
-- **Deep Research**: Comprehensive reports with multi-source synthesis
-- **Intelligent Routing**: Automatic intent classification
-- **Perfect Citations**: Source attribution across all workflows
+A **standalone multi-agent system** to explore:
+- **Agent Orchestration**: How multiple AI agents work together
+- **LangGraph Workflows**: State management and agent coordination  
+- **Tool Usage**: How agents decide when and how to use different tools
+- **Research Workflows**: Multi-step reasoning and information synthesis
 
 **📚 System Architecture:** See [`ARCHITECTURE.md`](ARCHITECTURE.md) for complete technical details
 
-## Your Mission: 2-Week Agent Sprint
+## Your Mission: 2-Week Agent Exploration
 
-Transform your RAG system into an intelligent multi-agent platform that can handle everything from quick questions to comprehensive research reports.
+Learn multi-agent patterns by building a research system that demonstrates key agent concepts. This is a **separate learning project** - your Phase 1-3 system remains complete and valuable as-is.
 
 ### **Week 1: Core Agent Framework**
 
@@ -23,7 +23,7 @@ Transform your RAG system into an intelligent multi-agent platform that can hand
 
 **What to Build:**
 - **Router Agent** - Intent classification (GPT-4.1 for speed)
-- **Simple RAG Node** - Automatic knowledge base retrieval (from Phase 1)
+- **Simple RAG Node** - Your complete Phases 1-3 system (RAG + Voice + Web capabilities)
 - **Simple Agent** - Concise answers with citations
 - **LangGraph workflow** connecting router → simple path → end
 
@@ -58,20 +58,20 @@ Transform your RAG system into an intelligent multi-agent platform that can hand
 
 ### **Week 2: Integration & Production**
 
-#### **Day 8-10: Phase Integration**
-**Your Mission:** Connect with your existing RAG, Voice, and MCP systems.
+#### **Day 8-10: Agent Patterns & Tools**
+**Your Mission:** Learn core agent patterns and tool usage.
 
 **What to Build:**
-- **RAG Integration** - Use your Phase 1 Pinecone/vector database for `search_knowledge_base`
-- **Perplexity Integration** - Connect Perplexity API for AI-powered deep research
-- **Voice Integration** - Adapt agents for voice interaction from Phase 2
-- **Unified State Management** - Consistent state across all phases
+- **Agent Communication** - How agents pass information between each other
+- **Tool Selection Logic** - How agents decide which tools to use when
+- **Error Handling** - How agents recover from failures and continue workflows
+- **State Persistence** - How to maintain context across complex agent interactions
 
-**Integration Points:**
-- Simple path uses existing RAG retrieval automatically
-- Research path uses RAG tools + Perplexity deep research
-- Voice interface can trigger both simple and research workflows
-- All workflows maintain perfect citation compliance
+**Key Learning Goals:**
+- Understand when to use multiple agents vs single agent
+- Learn LangGraph state management patterns
+- Practice agent prompt engineering
+- Build robust tool usage patterns
 
 **🎮 Side Quest:** Add conversation memory for multi-turn research, implement research session persistence.
 
@@ -229,4 +229,4 @@ Remember: Multi-agent systems are powerful but complex. Start with simple workfl
 
 ---
 
-**Integration Note:** This phase brings together everything from Phases 1-3 into a cohesive multi-agent system. You'll have a complete AI platform capable of handling any query from simple questions to comprehensive research reports! 🚀
+**Learning Note:** This phase focuses on **agent concepts and patterns**. Your Phase 1-3 system is complete and valuable as-is! You can optionally connect agent learnings to your existing system, but the main goal is understanding how multi-agent systems work. 🚀
