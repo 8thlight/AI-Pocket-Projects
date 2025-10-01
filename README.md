@@ -8,16 +8,17 @@
 
 Building AI products can feel overwhelming. Where do you start? 
 
-This repository takes you on a structured journey through three interconnected projects that, together, form the foundation of modern AI applications:
+This repository takes you on a structured journey through four interconnected projects that, together, form the foundation of modern AI applications:
 
 ```
-🧠 Knowledge Layer (RAG) → 🗣️ Voice Interface → 🌐 Live Information
+🧠 Knowledge Layer (RAG) → 🗣️ Voice Interface → 🌐 Live Information → 🤖 Agent Orchestration
 ```
 
-Each project builds essential skills while creating something genuinely useful. By the end, you'll have built a complete AI assistant that can:
+Each project builds essential skills while creating something genuinely useful. By the end, you'll have built a complete AI research platform that can:
 - **Answer questions from your documents with citations**
 - Have natural voice conversations
 - **Search the web and incorporate fresh information with source attribution**
+- **Orchestrate multi-agent workflows for comprehensive research reports**
 ---
 
 ## 🗺️ Your Learning Path
@@ -111,6 +112,36 @@ Static knowledge isn't enough. Your AI needs to search, discover, and incorporat
 
 ---
 
+### **Phase 4: The Intelligence Orchestrator**
+*Coordinate multiple AI agents for comprehensive research*
+
+**Project: Multi-Agent Research System**
+
+Individual agents are powerful, but coordinated agents are transformative. You'll build a system that intelligently routes requests and orchestrates specialized agents for different types of work.
+
+**What you'll build:**
+- Intelligent routing between simple RAG and deep research workflows
+- Research Planner → Gatherer → Report Builder agent chain
+- **Integration layer connecting RAG + Voice + Web Search**
+- Perplexity API integration for AI-powered research synthesis
+- Comprehensive research reports with multi-source citations
+
+**What you'll learn:**
+- **LangGraph for multi-agent workflow orchestration**
+- Intelligent request classification and routing
+- Agent specialization and tool delegation
+- **State management across complex agent workflows**
+- Production-ready agent error handling and observability
+- **Langfuse integration for agent tracing and evaluation**
+
+**Real-world applications:**
+- Research assistants for analysts and consultants  
+- Multi-step business process automation
+- Comprehensive report generation from multiple data sources
+- Intelligent customer service with escalation workflows
+
+---
+
 ## 🏗️ Architecture: How It All Connects
 
 ```mermaid
@@ -118,18 +149,29 @@ graph TB
     User[👤 User] --> Voice[🎙️ Voice Interface]
     User --> Web[🌐 Web UI]
     
-    Voice --> RAG[🧠 RAG System]
-    Web --> RAG
+    Voice --> Router[🤖 Agent Router]
+    Web --> Router
     
-    RAG --> VectorDB[(📊 Vector Database)]
-    RAG --> LLM[🤖 Language Model]
+    Router --> SimpleRAG[🧠 Simple RAG]
+    Router --> MultiAgent[👥 Multi-Agent Research]
     
-    MCP[🔍 Web MCP Server] --> RAG
+    SimpleRAG --> VectorDB[(📊 Vector Database)]
+    SimpleRAG --> LLM[🤖 Language Model]
+    
+    MultiAgent --> Planner[📋 Research Planner]
+    MultiAgent --> Gatherer[🔍 Research Gatherer]  
+    MultiAgent --> Builder[📄 Report Builder]
+    
+    Gatherer --> VectorDB
+    Gatherer --> MCP[🌐 Web MCP Server]
+    Gatherer --> Perplexity[🧠 Perplexity API]
+    
     MCP --> Search[🔎 Search APIs]
     MCP --> Scraper[📄 Web Scraper]
     
-    RAG --> Memory[(💾 Conversation Memory)]
-    RAG --> Eval[📈 Evaluation System]
+    SimpleRAG --> Memory[(💾 Conversation Memory)]
+    MultiAgent --> Memory
+    MultiAgent --> Eval[📈 Evaluation System]
 ```
 
 Each component is designed to work independently or as part of the larger system. Start with one, master it, then connect the pieces.
@@ -150,8 +192,10 @@ AI-Pocket-Projects/
     │   └── README.md           # Phase 1: Knowledge Foundation guide
     ├── 2. Voice/
     │   └── README.md           # Phase 2: Voice Interface guide
-    └── 3. MCP/
-        └── README.md           # Phase 3: Web Search guide
+    ├── 3. MCP/
+    │   └── README.md           # Phase 3: Web Search guide
+    └── 4. Agents/
+        └── README.md           # Phase 4: Multi-Agent Orchestration guide
 ```
 
 ---
@@ -171,11 +215,13 @@ AI-Pocket-Projects/
 - **Cartesia**: High-quality text-to-speech
 - **Various embedding models**: For semantic search
 - **Langfuse**: Prompt playground, evaluations, and LLM-as-a-judge monitoring
+- **Perplexity API**: AI-powered research and web synthesis
 
 **Infrastructure:**
 - **Docker**: Consistent development environments
 - **WebSockets**: Real-time communication
 - **Vector databases**: Chroma, SQLite-vec for semantic search
+- **LangGraph**: Multi-agent workflow orchestration
 
 ---
 
@@ -230,7 +276,7 @@ This repository is a **learning guide and architecture blueprint** - not a ready
 
 ### **Prerequisites for Building**
 - **Python 3.9+** and **Node.js 18+** for development
-- **API Keys**: OpenAI, Deepgram, Cartesia (for voice features)
+- **API Keys**: OpenAI, Deepgram, Cartesia (for voice features), Perplexity (for research)
 - **AI Development Tools**: GitHub Copilot, Cursor, or Claude for assistance
 - **Langfuse Account**: For prompt experimentation and evaluation
 
@@ -240,7 +286,7 @@ This repository is a **learning guide and architecture blueprint** - not a ready
 3. **Set up your development environment**: Install Python, Node.js, and your preferred AI coding assistant
 4. **Begin Phase 1**: Follow the detailed guide in [`project/1. RAG/README.md`](project/1.%20RAG/README.md)
 
-## 🎯 6-Week Project Milestones
+## 🎯 8-Week Project Milestones
 
 ### **Week 1-2: RAG Knowledge Foundation**
 - [ ] Set up RAG with sample documents from corpus
@@ -268,6 +314,16 @@ This repository is a **learning guide and architecture blueprint** - not a ready
 - [ ] **Add automatic knowledge updates with full web citation metadata**
 - [ ] Handle rate limits, errors, and edge cases gracefully
 - [ ] Polish end-to-end system: Voice → RAG → Web Search → Cited Responses
+
+### **Week 7-8: Multi-Agent Orchestration**
+**📚 Complete Guide:** [`project/4. Agents/README.md`](project/4.%20Agents/README.md)
+
+- [ ] Build intelligent routing system (simple vs research workflows)
+- [ ] Implement Research Planner → Gatherer → Report Builder agent chain
+- [ ] **Integrate all phases: RAG + Voice + Web Search + Agent orchestration**
+- [ ] Add Perplexity for AI-powered deep research synthesis
+- [ ] **Create comprehensive research reports with multi-source citations**
+- [ ] Optimize agent workflows for production deployment
 
 ---
 
