@@ -146,55 +146,6 @@ Individual agents are powerful, but coordinated agents are transformative. You'l
 
 Your learning journey follows a clear progression, with each phase building on the previous:
 
-```mermaid
-graph LR
-    %% Phase 1: Knowledge Foundation
-    subgraph P1 ["Phase 1: Knowledge Foundation"]
-        RAG[🧠 RAG System]
-        DB[(📊 Vector DB)]
-        Cites[📄 Citations]
-        RAG --> DB
-        RAG --> Cites
-    end
-    
-    %% Phase 2: Voice Interface  
-    subgraph P2 ["Phase 2: Voice Interface"]
-        Voice[🎙️ Voice Pipeline]
-    end
-    
-    %% Phase 3: Web Intelligence
-    subgraph P3 ["Phase 3: Web Intelligence"]
-        Web[🌐 Web Search]
-    end
-    
-    %% Phase 4: Agent Orchestration
-    subgraph P4 ["Phase 4: Agent Orchestration"]
-        Router{🤖 Smart Router}
-        Simple[⚡ Quick Answers]
-        Research[📋 Deep Research]
-        Multi[👥 Multi-Agent Chain]
-        Router --> Simple
-        Router --> Research
-        Research --> Multi
-    end
-    
-    %% Learning progression: Phase 1 → 2 → 3 → 4
-    P1 --> P2
-    P2 --> P3
-    P3 --> P4
-    
-    %% Technical connections
-    Voice --> RAG
-    Web --> RAG
-    Simple --> RAG
-    Multi --> RAG
-    Multi --> Web
-    
-    %% User entry points
-    User[👤 You] --> Voice
-    User --> Router
-```
-
 **🎯 Learning Path:**
 1. **Phase 1**: Build reliable RAG with perfect citations
 2. **Phase 2**: Add voice conversation on top of your RAG  
@@ -206,7 +157,7 @@ graph LR
 - **Phase 4**: **Separate agent exploration project** - learn multi-agent concepts and patterns
 
 **Two Approaches for Phase 4:**
-1. **Learning Focus**: Build a standalone agent system to explore LangGraph and multi-agent patterns
+1. **Learning Focus**: Build a standalone agent system to explore LangGraph or AutoGen and multi-agent patterns
 2. **Integration Option**: Optionally connect agent concepts to your Phase 1-3 system if you want
 
 **Key Insight**: Your Phase 1-3 system is complete and valuable as-is. Phase 4 is about learning a different AI architecture pattern, not retrofitting your existing work.
@@ -218,19 +169,22 @@ graph LR
 ```
 AI-Pocket-Projects/
 ├── README.md                    # This guide
+├── LICENSE
 ├── data/
 │   └── corpus/                  # RAG materials
 │       ├── ai/                  # AI concepts and techniques
 │       └── computing/           # Computing history and context
 └── project/                     # Structured learning phases
     ├── 1. RAG/
-    │   └── README.md           # Phase 1: Knowledge Foundation guide
+    │   ├── README.md           # Phase 1: Knowledge Foundation guide
     ├── 2. Voice/
     │   └── README.md           # Phase 2: Voice Interface guide
     ├── 3. MCP/
     │   └── README.md           # Phase 3: Web Search guide
     └── 4. Agents/
-        └── README.md           # Phase 4: Multi-Agent Orchestration guide
+        ├── README.md           # Phase 4: Multi-Agent Orchestration guide
+        ├── LANGGRAPH_ARCHITECTURE.md   # LangGraph implementation details
+        └── AUTOGEN_ARCHITECTURE.md     # AutoGen implementation details
 ```
 
 ---
