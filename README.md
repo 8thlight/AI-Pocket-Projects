@@ -148,32 +148,49 @@ Your learning journey follows a clear progression, with each phase building on t
 
 ```mermaid
 graph LR
-    subgraph "Phase 1: Knowledge Foundation"
+    %% Phase 1: Knowledge Foundation
+    subgraph P1 ["Phase 1: Knowledge Foundation"]
         RAG[🧠 RAG System]
-        RAG --> DB[(📊 Vector DB)]
-        RAG --> Cites[📄 Citations]
+        DB[(📊 Vector DB)]
+        Cites[📄 Citations]
+        RAG --> DB
+        RAG --> Cites
     end
     
-    subgraph "Phase 2: Voice Interface"
+    %% Phase 2: Voice Interface  
+    subgraph P2 ["Phase 2: Voice Interface"]
         Voice[🎙️ Voice Pipeline]
-        Voice --> RAG
     end
     
-    subgraph "Phase 3: Web Intelligence" 
+    %% Phase 3: Web Intelligence
+    subgraph P3 ["Phase 3: Web Intelligence"]
         Web[🌐 Web Search]
-        Web --> RAG
     end
     
-    subgraph "Phase 4: Agent Orchestration"
+    %% Phase 4: Agent Orchestration
+    subgraph P4 ["Phase 4: Agent Orchestration"]
         Router{🤖 Smart Router}
-        Router --> Simple[⚡ Quick Answers]
-        Router --> Research[📋 Deep Research]
-        Simple --> RAG
-        Research --> Multi[👥 Multi-Agent Chain]
-        Multi --> RAG
-        Multi --> Web
+        Simple[⚡ Quick Answers]
+        Research[📋 Deep Research]
+        Multi[👥 Multi-Agent Chain]
+        Router --> Simple
+        Router --> Research
+        Research --> Multi
     end
     
+    %% Learning progression: Phase 1 → 2 → 3 → 4
+    P1 --> P2
+    P2 --> P3
+    P3 --> P4
+    
+    %% Technical connections
+    Voice --> RAG
+    Web --> RAG
+    Simple --> RAG
+    Multi --> RAG
+    Multi --> Web
+    
+    %% User entry points
     User[👤 You] --> Voice
     User --> Router
 ```
