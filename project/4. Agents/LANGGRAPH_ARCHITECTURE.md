@@ -1,6 +1,8 @@
-# System Architecture
+# LangGraph Implementation Architecture
 
 ## Overview
+
+This document covers the **Track A: LangGraph implementation** of the multi-agent research system. If you're following **Track B: AutoGen**, this document won't be relevant - AutoGen uses conversation-based coordination instead of explicit workflow graphs.
 
 This is a **multi-agent research system** with intelligent routing. It uses LangGraph to orchestrate different workflows based on user intent.
 

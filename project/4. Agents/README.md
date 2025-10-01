@@ -1,16 +1,18 @@
 # Phase 4: Multi-Agent Systems 🤖
 
-*Learn agent orchestration patterns and LangGraph workflows*
+*Learn agent orchestration patterns with LangGraph or AutoGen*
 
 ## What You're Building
 
 A **standalone multi-agent system** to explore:
 - **Agent Orchestration**: How multiple AI agents work together
-- **LangGraph Workflows**: State management and agent coordination  
+- **Framework Patterns**: Choose your agent framework (LangGraph, AutoGen, or CrewAI)
 - **Tool Usage**: How agents decide when and how to use different tools
 - **Research Workflows**: Multi-step reasoning and information synthesis
 
-**📚 System Architecture:** See [`ARCHITECTURE.md`](ARCHITECTURE.md) for complete technical details
+**📚 Implementation Details:** 
+- **Track A (LangGraph)**: See [`LANGGRAPH_ARCHITECTURE.md`](LANGGRAPH_ARCHITECTURE.md) for detailed workflow implementation
+- **Track B (AutoGen)**: See [`AUTOGEN_ARCHITECTURE.md`](AUTOGEN_ARCHITECTURE.md) for detailed conversation-based implementation
 
 ## Your Mission: 2-Week Agent Exploration
 
@@ -18,33 +20,114 @@ Learn multi-agent patterns by building a research system that demonstrates key a
 
 ### **Week 1: Core Agent Framework**
 
-#### **Day 1-3: Router & Simple Agent Path**
-**Your Mission:** Build the intelligent routing system and fast-response pipeline.
+#### **Day 1-3: Framework Setup & Basic Agent Interaction**
+
+**Your Mission:** Get your chosen framework working with basic agent interactions.
+
+### **Track A: LangGraph Implementation**
 
 **What to Build:**
-- **Router Agent** - Intent classification (GPT-4.1 for speed)
-- **Simple RAG Node** - Your complete Phases 1-3 system (RAG + Voice + Web capabilities)
-- **Simple Agent** - Concise answers with citations
-- **LangGraph workflow** connecting router → simple path → end
+- **Router Node** - Intent classification using conditional edges
+- **Simple Agent Node** - Basic response generation  
+- **State Schema** - Define AgentState with messages and routing decisions
+- **Basic Graph** - Connect router → agent → end
 
-**Routing Logic:**
-- Detect research keywords: "comprehensive", "report", "deep dive", "research" → RESEARCH
-- Detect simple patterns: "What is...", "Define...", "Who..." → SIMPLE
-- Default to SIMPLE for fast responses
+**Key Learning:**
+```python
+def router_node(state: AgentState):
+    last_message = state["messages"][-1]
+    if "research" in last_message.content.lower():
+        return {"routing_decision": "research"}
+    return {"routing_decision": "simple"}
+
+workflow.add_conditional_edges("router", 
+    lambda state: state["routing_decision"],
+    {"simple": "simple_agent", "research": "research_planner"}
+)
+```
+
+### **Track B: AutoGen Implementation**
+
+**What to Build:**
+- **User Proxy Agent** - Handles user interaction and task initiation
+- **Research Assistant** - Primary research agent with web search tools
+- **Quality Critic** - Reviews and improves research outputs
+- **Group Chat** - Coordinate multi-agent conversations
+
+**Key Learning:**
+```python
+user_proxy = UserProxyAgent("user_proxy", 
+    human_input_mode="NEVER",
+    code_execution_config={"use_docker": False}
+)
+
+researcher = AssistantAgent("researcher",
+    system_message="You research topics thoroughly using available tools"
+)
+
+critic = AssistantAgent("critic", 
+    system_message="You review research and suggest improvements"
+)
+```
 
 **🎮 Side Quest:** Experiment with different routing prompts, add confidence scoring for routing decisions.
 
 **⚠️ Gotcha:** Router needs to be fast (< 1 second) and accurate. Test with diverse query types.
 
-#### **Day 4-7: Research Agent Path**
-**Your Mission:** Build the multi-agent research workflow for comprehensive reports.
+#### **Day 4-7: Multi-Agent Research Workflow**
+
+**Your Mission:** Build the complete research workflow with multiple agents.
+
+### **Track A: LangGraph Multi-Agent Chain**
 
 **What to Build:**
-- **Research Planner Agent** - Strategic topic breakdown
-- **Research Gatherer Agent** - Multi-source information collection  
-- **Report Builder Agent** - Comprehensive markdown report synthesis
-- **Tool Node** - Shared tool execution for all agents
-- **LangGraph workflow** connecting research path with proper state management
+- **Research Planner Node** - Breaks down complex topics
+- **Research Gatherer Node** - Collects information using tools
+- **Report Builder Node** - Synthesizes comprehensive reports
+- **Tool Node** - Shared tool execution (Perplexity, knowledge base)
+- **Conditional Logic** - Smart routing based on research completeness
+
+**Key Learning:**
+```python
+def research_gatherer_node(state: AgentState):
+    # Agent decides which tools to use
+    if needs_web_research(state):
+        return call_perplexity_tool(state)
+    elif needs_knowledge_base(state):
+        return call_kb_search_tool(state)
+    else:
+        return {"messages": [AIMessage("Research complete")]}
+
+workflow.add_conditional_edges("research_gatherer",
+    lambda state: "continue" if has_tool_calls(state) else "build_report"
+)
+```
+
+### **Track B: AutoGen Research Team**
+
+**What to Build:**
+- **Topic Planner Agent** - Breaks down research topics
+- **Knowledge Researcher Agent** - Searches knowledge bases  
+- **Web Researcher Agent** - Handles web search and synthesis
+- **Report Writer Agent** - Creates comprehensive markdown reports
+- **Research Coordinator** - Orchestrates the research team
+
+**Key Learning:**
+```python
+# Agents work together through conversation
+groupchat = GroupChat(
+    agents=[planner, knowledge_researcher, web_researcher, writer],
+    messages=[],
+    max_round=10
+)
+
+manager = GroupChatManager(groupchat=groupchat, llm_config=config)
+
+user_proxy.initiate_chat(
+    manager,
+    message="Research the evolution of transformer architectures"
+)
+```
 
 **Research Tools:**
 - `research_topic_breakdown` - Creates structured research plan
@@ -69,9 +152,40 @@ Learn multi-agent patterns by building a research system that demonstrates key a
 
 **Key Learning Goals:**
 - Understand when to use multiple agents vs single agent
-- Learn LangGraph state management patterns
-- Practice agent prompt engineering
-- Build robust tool usage patterns
+- Learn your chosen framework's coordination patterns
+- Practice agent prompt engineering and role design
+- Build robust tool usage and error handling patterns
+
+**🎯 Recommended Approach**: Pick ONE framework and go deep rather than trying both. Each teaches valuable but different agent patterns.
+
+## 🔧 **Choose Your Agent Framework**
+
+**Pick ONE framework and follow its implementation track:**
+
+### **Track A: LangGraph** (Explicit Workflows)
+**Best for**: Learning state management, complex routing, visual workflows
+
+**Key Concepts**: Nodes, edges, state schemas, conditional routing
+```python
+# LangGraph approach: Explicit workflow graph
+workflow = StateGraph(AgentState)
+workflow.add_node("planner", research_planner_node)  
+workflow.add_node("gatherer", research_gatherer_node)
+workflow.add_conditional_edges("gatherer", should_continue)
+```
+
+### **Track B: AutoGen** (Conversational Agents)  
+**Best for**: Learning agent conversations, role-based coordination, natural interactions
+
+**Key Concepts**: Agent roles, group chats, conversation patterns
+```python
+# AutoGen approach: Agents converse to solve problems
+researcher = AssistantAgent("Researcher", llm_config=config)
+writer = AssistantAgent("Writer", llm_config=config) 
+critic = AssistantAgent("Critic", llm_config=config)
+
+user_proxy.initiate_chat(researcher, message="Research RAG systems")
+```
 
 **🎮 Side Quest:** Add conversation memory for multi-turn research, implement research session persistence.
 
@@ -120,10 +234,18 @@ Learn multi-agent patterns by building a research system that demonstrates key a
 
 ## Tech Stack
 
-**Core Framework:**
+**Choose Your Tech Stack:**
+
+### **Track A: LangGraph Stack**
 - **LangChain** - Agent definitions, tool integration, embeddings
 - **LangGraph** - Multi-agent workflow orchestration and state management
-- **Langfuse** - Complete observability and tracing (100% coverage)
+- **Langfuse** - Complete observability and tracing
+
+### **Track B: AutoGen Stack**  
+- **AutoGen** - Multi-agent conversation framework
+- **OpenAI/Anthropic** - LLM providers (no LangChain required)
+- **Custom Tools** - Perplexity API, knowledge base search
+- **Optional Langfuse** - Observability (requires custom integration)
 
 **LLM Selection:**
 - **OpenAI GPT-4** - Research agents (quality for complex reasoning)
@@ -143,27 +265,40 @@ Learn multi-agent patterns by building a research system that demonstrates key a
 
 ## Environment Variables
 
+### **Track A: LangGraph Setup**
 ```bash
 # Core LLM APIs
 OPENAI_API_KEY=your_openai_key
+ANTHROPIC_API_KEY=your_anthropic_key  # Optional
 
-# Observability (Consistent with Phases 1-3)
-LANGFUSE_SECRET_KEY=your_langfuse_secret
+# LangChain/LangGraph
+LANGCHAIN_API_KEY=your_langsmith_api_key  # For tracing
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_PROJECT="multi-agent-research"
+
+# Research APIs
+PERPLEXITY_API_KEY=your_perplexity_key
+# Add your knowledge base API keys here
+
+# Observability  
+LANGFUSE_SECRET_KEY=your_langfuse_secret  # Alternative to LangSmith
 LANGFUSE_PUBLIC_KEY=your_langfuse_public
-LANGFUSE_HOST=https://cloud.langfuse.com
+```
 
-# Optional: LangSmith (Alternative to Langfuse)
-# LANGCHAIN_API_KEY=your_langsmith_api_key
-# LANGCHAIN_TRACING_V2=true
-# LANGCHAIN_PROJECT="multi-agent-research"
+### **Track B: AutoGen Setup**
+```bash
+# Core LLM APIs
+OPENAI_API_KEY=your_openai_key
+ANTHROPIC_API_KEY=your_anthropic_key  # Optional
 
-# From Previous Phases
-PINECONE_API_KEY=your_pinecone_key  # Phase 1 RAG
-PERPLEXITY_API_KEY=your_perplexity_key  # Phase 3 Deep Research
+# Research APIs
+PERPLEXITY_API_KEY=your_perplexity_key
+# Add your knowledge base API keys here
 
-# Optional
-ANTHROPIC_API_KEY=your_anthropic_key  # If using Claude
-REDIS_URL=redis://localhost:6379     # Session persistence
+# AutoGen doesn't require LangChain
+# Custom observability setup if desired
+LANGFUSE_SECRET_KEY=your_langfuse_secret  # Optional
+LANGFUSE_PUBLIC_KEY=your_langfuse_public
 ```
 
 ## Success Criteria
