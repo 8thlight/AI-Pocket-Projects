@@ -160,7 +160,7 @@ def should_prune_memory(conversation_history, max_tokens=4000):
 
 ### **Supporting Libraries**
 
-**Langchain Memory Classes:**
+**LangChain Memory Classes:**
 - `ConversationSummaryBufferMemory` - Automatic summarization when full
 - `ConversationTokenBufferMemory` - Token-based memory limits
 - `ConversationEntityMemory` - Track entities mentioned in conversation
@@ -206,7 +206,7 @@ def should_prune_memory(conversation_history, max_tokens=4000):
 
 **Redis Session Management:**
 - **redis-py** or **ioredis** for Redis client
-- **Langchain Memory** classes for conversation management
+- **LangChain Memory** classes for conversation management
 - **tiktoken** for token counting and memory pruning
 - **Custom memory strategies** for voice-specific needs
 

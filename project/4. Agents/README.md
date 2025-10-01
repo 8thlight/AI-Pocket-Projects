@@ -6,7 +6,7 @@
 
 A **standalone multi-agent system** to explore:
 - **Agent Orchestration**: How multiple AI agents work together
-- **Framework Patterns**: Choose your agent framework (LangGraph, AutoGen, or CrewAI)
+- **Framework Patterns**: Choose your agent framework (LangGraph or AutoGen)
 - **Tool Usage**: How agents decide when and how to use different tools
 - **Research Workflows**: Multi-step reasoning and information synthesis
 

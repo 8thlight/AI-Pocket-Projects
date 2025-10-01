@@ -15,6 +15,8 @@ A Model Context Protocol (MCP) server that extends your AI system with:
 
 **📚 Working Example:** [WebCat](https://github.com/Kode-Rex/webcat) - Full MCP implementation for web search and scraping
 
+**📋 Official MCP Documentation:** [Model Context Protocol](https://modelcontextprotocol.io/) - Complete specification and standards
+
 ## Your Mission: 2-Week Web Intelligence Sprint
 
 Transform your voice assistant into a web-connected intelligence system that can answer questions about current events, recent developments, and real-time information.
@@ -25,7 +27,7 @@ Transform your voice assistant into a web-connected intelligence system that can
 **Your Mission:** Build the foundational MCP server with proper tool registration.
 
 **What to Build:**
-- **MCP server** using the official MCP SDK (Python or TypeScript)
+- **MCP server** using FastMCP (Python) or custom Node.js implementation
 - Tool registration for `web_search` and `scrape_url` functions
 - Basic HTTP client setup with proper headers and user agents
 - Error handling and timeout management for web requests
@@ -130,16 +132,15 @@ Transform your voice assistant into a web-connected intelligence system that can
 - **PyPDF2** or **pdfplumber** for PDF processing
 
 **MCP Framework:**
-- **Official MCP SDK** (Python or TypeScript)
-- FastAPI or Express.js for HTTP server
+- **Official MCP SDK** (Python or TypeScript) - See [MCP Documentation](https://modelcontextprotocol.io/docs)
+- **FastMCP** (Python) - Dedicated MCP server framework
+- **Node.js MCP implementation** - Manual MCP specification implementation
 - WebSocket support for real-time communication
 - JSON-RPC for MCP protocol compliance
 
 **Caching & Storage:**
 - **Redis** for search result and content caching
 - SQLite for metadata and URL tracking
-- File system for scraped content storage
-- CDN for static content delivery
 
 ## Environment Variables
 
