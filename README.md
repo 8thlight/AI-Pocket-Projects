@@ -194,16 +194,18 @@ AI-Pocket-Projects/
 **Languages & Frameworks:**
 - **Python**: FastAPI, pytest for backend systems
 - **JavaScript/TypeScript**: Modern web interfaces and MCP servers
-- **SQL**: SQLite for simple, reliable data storage
 - **Pipecat**: Voice pipeline framework for real-time conversations
+- **LangGraph**: Multi-agent workflow orchestration with explicit state management
+- **AutoGen**: Conversational multi-agent coordination through natural language
 
 **AI Services:**
-- **OpenAI GPT-4o**: Language understanding and generation
+- **OpenAI GPT-X**: Language understanding and generation
 - **OpenAI Realtime API**: Low-latency voice conversations
 - **Deepgram**: Real-time speech recognition
 - **Cartesia**: High-quality text-to-speech
 - **Various embedding models**: For semantic search
 - **Langfuse**: Prompt playground, evaluations, and LLM-as-a-judge monitoring
+- **LangSmith**: Prompt playground, evaluations, and LLM-as-a-judge monitoring
 - **Perplexity API**: AI-powered research and web synthesis
 
 **Infrastructure:**
