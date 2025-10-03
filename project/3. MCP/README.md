@@ -57,7 +57,7 @@ Transform your voice assistant into a web-connected intelligence system that can
 **Your Mission:** Build robust web scraping that extracts clean, useful content.
 
 **What to Build:**
-- **Web scraping engine** using BeautifulSoup, Playwright, or Scrapy
+- **Web scraping engine** using Trafilatura, Playwright, or Scrapy
 - Content extraction focusing on main article text
 - HTML to Markdown conversion for consistent formatting
 - Image and media handling (descriptions, alt text)
@@ -120,8 +120,8 @@ Transform your voice assistant into a web-connected intelligence system that can
 - Alternative: Bing Web Search API (Microsoft's search engine)
 
 **Web Scraping:**
+- **Trafilatura** (best-in-class content extraction, handles boilerplate removal)
 - **Playwright** (handles JavaScript, multiple browsers)
-- BeautifulSoup + requests (lightweight for static content)
 - Scrapy (full-featured scraping framework)
 - Selenium (fallback for complex sites)
 
